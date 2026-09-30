@@ -172,67 +172,6 @@
 
 
 /* =========================================================
-   SCROLL (button)
-   ========================================================= */
-
-.scroll {
-  display: flex;
-  align-items: flex-start;
-
-  gap: 1rem;
-
-  margin: 1.5rem 0 0 0.5rem;
-  padding: 0;
-
-  background: none;
-  border: 0;
-
-  color: inherit;
-  font: inherit;
-  text-align: left;
-
-  cursor: pointer;
-
-  -webkit-tap-highlight-color: transparent;
-}
-
-.scroll:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 0.6rem;
-}
-
-.scrollRule {
-  width: 0.125rem;
-  height: 3rem;
-
-  background: var(--text);
-}
-
-.scrollDetails {
-  display: flex;
-  flex-direction: column;
-
-  padding-top: 1.6rem;
-
-  color: var(--text);
-
-  font-family: var(--font-body);
-  font-size: 0.62rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.34em;
-}
-
-.arrow {
-  margin-top: 0.4rem;
-
-  font-size: 1.15rem;
-  line-height: 1;
-  letter-spacing: 0;
-}
-
-
-/* =========================================================
    PAGE-LOAD SEQUENCE
    One orchestrated entrance: title lines, then the rest.
    ========================================================= */
@@ -241,8 +180,7 @@
 
   .title span,
   .description,
-  .coach,
-  .scroll {
+  .coach {
     animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
@@ -252,7 +190,6 @@
 
   .description { animation-delay: 0.45s; }
   .coach       { animation-delay: 0.55s; }
-  .scroll      { animation-delay: 0.65s; }
 }
 
 @keyframes rise {
@@ -358,28 +295,6 @@
     font-size: 0.72rem;
     letter-spacing: 0.28em;
   }
-
-  /* Scroll */
-  .scroll {
-    margin: 1.75rem 0 0 0.25rem;
-  }
-
-  .scrollRule {
-    height: 2.75rem;
-  }
-
-  .scrollDetails {
-    padding-top: 1.45rem;
-
-    font-size: 0.7rem;
-    letter-spacing: 0.32em;
-  }
-
-  .arrow {
-    margin-top: 0.35rem;
-
-    font-size: 1.2rem;
-  }
 }
 
 
@@ -423,25 +338,5 @@
   .coachRole {
     font-size: 0.66rem;
     letter-spacing: 0.26em;
-  }
-
-  .scroll {
-    gap: 0.9rem;
-
-    margin-top: 1.6rem;
-  }
-
-  .scrollRule {
-    height: 2.6rem;
-  }
-
-  .scrollDetails {
-    padding-top: 1.3rem;
-
-    font-size: 0.64rem;
-  }
-
-  .arrow {
-    font-size: 1.1rem;
   }
 }

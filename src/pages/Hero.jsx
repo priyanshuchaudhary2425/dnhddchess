@@ -1,29 +1,10 @@
-import { useRef } from "react";
-
 import styles from "./Hero.module.css";
 import desktopBg from "../assets/herobg.png";
 import mobileBg from "../assets/herobg-mobile.png";
 
 function Hero() {
-  const heroRef = useRef(null);
-
-  // Smoothly scrolls to whatever sits directly below the hero.
-  const handleScroll = () => {
-    const hero = heroRef.current;
-    if (!hero) return;
-
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    window.scrollTo({
-      top: hero.getBoundingClientRect().bottom + window.scrollY,
-      behavior: prefersReducedMotion ? "auto" : "smooth",
-    });
-  };
-
   return (
-    <section ref={heroRef} className={styles.hero}>
+    <section className={styles.hero}>
       {/* Background artwork */}
       <div
         className={styles.background}
@@ -59,8 +40,6 @@ function Hero() {
               <span className={styles.coachRole}>HEAD COACH</span>
             </div>
           </div>
-
-         
         </div>
       </div>
     </section>
