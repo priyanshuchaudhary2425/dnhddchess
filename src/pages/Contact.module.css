@@ -1,0 +1,672 @@
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background: var(--bg);
+  color: var(--text);
+
+  padding: 8rem 0 7rem;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   DECORATIVE ELEMENTS
+   ========================================================= */
+
+.decorTop {
+  position: absolute;
+
+  width: 20rem;
+  height: 20rem;
+
+  top: -12rem;
+  right: -7rem;
+
+  border: 0.0625rem solid var(--gold);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+.decorBottom {
+  position: absolute;
+
+  width: 20rem;
+  height: 20rem;
+
+  bottom: -14rem;
+  left: -10rem;
+
+  border: 0.0625rem solid var(--gold);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+  width: min(
+    calc(100% - 14rem),
+    110rem
+  );
+
+  min-height: 70vh;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr);
+
+  column-gap: 4.5rem;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+   ========================================================= */
+
+.content {
+  width: 100%;
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 1.25rem;
+
+  color: var(--text);
+
+  font-family: var(--font-body);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: 0.3em;
+}
+
+.eyebrowLine {
+  width: 4rem;
+  height: 0.125rem;
+
+  flex-shrink: 0;
+
+  background: var(--accent);
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.title {
+  display: flex;
+  flex-direction: column;
+
+  margin: 3.3rem 0 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(
+    5.5rem,
+    8vw,
+    9rem
+  );
+
+  font-weight: 400;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.055em;
+}
+
+.title span {
+  display: block;
+}
+
+.green {
+  color: var(--text);
+}
+
+.red {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.description {
+  max-width: 38rem;
+
+  margin: 2.8rem 0 0;
+
+  color: var(--muted);
+
+  font-family: var(--font-body);
+
+  font-size: clamp(
+    1.1rem,
+    1.45vw,
+    1.4rem
+  );
+
+  font-weight: 500;
+
+  line-height: 1.45;
+
+  letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.divider {
+  width: 0.0625rem;
+
+  height: 80%;
+
+  min-height: 28rem;
+
+  background: var(--border);
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.cards {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1.25rem;
+
+  width: 100%;
+
+  max-width: 38rem;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1.75rem;
+
+  width: 100%;
+
+  min-height: 9rem;
+
+  padding: 1.75rem 2rem;
+
+  border: 0.0625rem solid var(--border);
+
+  border-radius: 0.8rem;
+
+  background: rgba(255, 253, 248, 0.3);
+
+  color: inherit;
+
+  text-decoration: none;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+
+/* Only interactive cards */
+
+a.card {
+  cursor: pointer;
+}
+
+a.card:hover {
+  border-color: var(--gold);
+
+  background: rgba(255, 253, 248, 0.65);
+
+  transform: translateY(-0.15rem);
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.iconBox {
+  width: 5.25rem;
+  height: 5.25rem;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eee6d7;
+
+  color: var(--accent);
+
+  font-size: 2rem;
+}
+
+.iconBox svg {
+  stroke-width: 2;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.cardContent {
+  min-width: 0;
+}
+
+.cardContent h3 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-family: var(--font-display);
+
+  font-size: 1.9rem;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: -0.025em;
+}
+
+.cardContent p {
+  margin: 0.7rem 0 0;
+
+  color: var(--muted);
+
+  font-family: var(--font-body);
+
+  font-size: 1rem;
+
+  font-weight: 500;
+
+  line-height: 1.45;
+
+  letter-spacing: -0.015em;
+}
+
+
+/* =========================================================
+   WHATSAPP META
+   ========================================================= */
+
+.cardMeta {
+  display: block;
+
+  margin-top: 0.35rem;
+
+  color: var(--muted);
+
+  font-family: var(--font-body);
+
+  font-size: 0.65rem;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 64rem) {
+
+  .contact {
+    padding: 7rem 0 6rem;
+  }
+
+  .container {
+    width: min(
+      calc(100% - 8rem),
+      70rem
+    );
+
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      auto
+      minmax(0, 1fr);
+
+    column-gap: 2.5rem;
+  }
+
+  .title {
+    font-size: clamp(
+      4.8rem,
+      8.5vw,
+      7rem
+    );
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .cards {
+    gap: 1rem;
+  }
+
+  .card {
+    gap: 1.25rem;
+
+    min-height: 8rem;
+
+    padding: 1.35rem;
+  }
+
+  .iconBox {
+    width: 4.5rem;
+    height: 4.5rem;
+
+    font-size: 1.7rem;
+  }
+
+  .cardContent h3 {
+    font-size: 1.65rem;
+  }
+
+  .cardContent p {
+    font-size: 0.88rem;
+  }
+
+  .cardMeta {
+    font-size: 0.58rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 48rem) {
+
+  .contact {
+    min-height: auto;
+
+    padding: 5.5rem 0 5rem;
+  }
+
+  .container {
+    width: calc(100% - 3rem);
+
+    min-height: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  /* -------------------------------------------------------
+     EYEBROW
+     ------------------------------------------------------- */
+
+  .eyebrow {
+    gap: 0.9rem;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.22em;
+  }
+
+  .eyebrowLine {
+    width: 2.5rem;
+  }
+
+
+  /* -------------------------------------------------------
+     TITLE
+     ------------------------------------------------------- */
+
+  .title {
+    margin-top: 2.5rem;
+
+    font-size: clamp(
+      4rem,
+      18vw,
+      5.8rem
+    );
+
+    line-height: 0.83;
+  }
+
+
+  /* -------------------------------------------------------
+     DESCRIPTION
+     ------------------------------------------------------- */
+
+  .description {
+    max-width: 28rem;
+
+    margin-top: 2rem;
+
+    font-size: 1rem;
+
+    line-height: 1.5;
+  }
+
+
+  /* -------------------------------------------------------
+     DIVIDER
+     ------------------------------------------------------- */
+
+  .divider {
+    width: 100%;
+
+    height: 0.0625rem;
+
+    min-height: 0;
+
+    margin: 3.5rem 0 2rem;
+
+    background: var(--border);
+  }
+
+
+  /* -------------------------------------------------------
+     CARDS
+     ------------------------------------------------------- */
+
+  .cards {
+    max-width: none;
+
+    gap: 0.9rem;
+  }
+
+  .card {
+    min-height: 7rem;
+
+    gap: 1.1rem;
+
+    padding: 1.1rem;
+
+    border-radius: 0.7rem;
+  }
+
+
+  /* -------------------------------------------------------
+     ICON
+     ------------------------------------------------------- */
+
+  .iconBox {
+    width: 3.75rem;
+    height: 3.75rem;
+
+    font-size: 1.45rem;
+  }
+
+
+  /* -------------------------------------------------------
+     CONTENT
+     ------------------------------------------------------- */
+
+  .cardContent h3 {
+    font-size: 1.5rem;
+  }
+
+  .cardContent p {
+    margin-top: 0.5rem;
+
+    font-size: 0.82rem;
+
+    line-height: 1.45;
+  }
+
+  .cardMeta {
+    margin-top: 0.35rem;
+
+    font-size: 0.52rem;
+
+    letter-spacing: 0.12em;
+  }
+
+
+  /* -------------------------------------------------------
+     DECORATIONS
+     ------------------------------------------------------- */
+
+  .decorTop {
+    width: 13rem;
+    height: 13rem;
+
+    top: -8rem;
+    right: -7rem;
+  }
+
+  .decorBottom {
+    width: 14rem;
+    height: 14rem;
+
+    bottom: -9rem;
+    left: -8rem;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 30rem) {
+
+  .container {
+    width: calc(100% - 2.5rem);
+  }
+
+  .contact {
+    padding: 4.5rem 0 4rem;
+  }
+
+  .title {
+    margin-top: 2.25rem;
+
+    font-size: clamp(
+      3.7rem,
+      18vw,
+      5rem
+    );
+  }
+
+  .description {
+    font-size: 0.92rem;
+  }
+
+  .divider {
+    margin-top: 3rem;
+  }
+
+  .card {
+    gap: 1rem;
+
+    min-height: 6.5rem;
+
+    padding: 1rem;
+  }
+
+  .iconBox {
+    width: 3.4rem;
+    height: 3.4rem;
+
+    font-size: 1.25rem;
+  }
+
+  .cardContent h3 {
+    font-size: 1.35rem;
+  }
+
+  .cardContent p {
+    font-size: 0.75rem;
+  }
+
+  .cardMeta {
+    font-size: 0.48rem;
+  }
+}

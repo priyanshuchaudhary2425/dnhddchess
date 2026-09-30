@@ -1,0 +1,535 @@
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background: var(--bg);
+  color: var(--text);
+
+  padding: 8rem 0 7.5rem;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   DECORATIVE ELEMENTS
+   ========================================================= */
+
+.decorTop,
+.decorBottom {
+  position: absolute;
+
+  width: 20rem;
+  height: 20rem;
+
+  border: 0.0625rem solid var(--gold);
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+.decorTop {
+  top: -12rem;
+  right: -8rem;
+}
+
+.decorBottom {
+  bottom: -14rem;
+  left: -10rem;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+  width: min(
+    calc(100% - 14rem),
+    110rem
+  );
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 1.25rem;
+
+  color: var(--text);
+
+  font-family: var(--font-body);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: 0.3em;
+}
+
+.eyebrowLine {
+  width: 4rem;
+  height: 0.125rem;
+
+  flex-shrink: 0;
+
+  background: var(--accent);
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.title {
+  display: flex;
+  flex-direction: column;
+
+  margin: 3.1rem 0 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(
+    5.5rem,
+    8vw,
+    9rem
+  );
+
+  font-weight: 400;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.055em;
+}
+
+.title span {
+  display: block;
+}
+
+.green {
+  color: var(--text);
+}
+
+.red {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro {
+  width: min(
+    100%,
+    51rem
+  );
+
+  margin-top: 2.8rem;
+}
+
+.intro p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-family: var(--font-body);
+
+  font-size: clamp(
+    1.1rem,
+    1.45vw,
+    1.4rem
+  );
+
+  font-weight: 500;
+
+  line-height: 1.45;
+
+  letter-spacing: -0.025em;
+}
+
+.intro p + p {
+  margin-top: 1.35rem;
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+   ========================================================= */
+
+.highlights {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  margin-top: 4.5rem;
+
+  width: 100%;
+
+  border-top: 0.0625rem solid var(--border);
+}
+
+
+/* =========================================================
+   HIGHLIGHT
+   ========================================================= */
+
+.highlight {
+  min-width: 0;
+
+  padding: 2rem 3.5rem 0 0;
+}
+
+.highlight + .highlight {
+  padding-left: 3.5rem;
+
+  border-left: 0.0625rem solid var(--border);
+}
+
+
+/* =========================================================
+   META
+   ========================================================= */
+
+.meta {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+
+  color: var(--gold);
+
+  font-family: var(--font-body);
+
+  font-size: 0.7rem;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: 0.2em;
+}
+
+.metaLine {
+  width: 5rem;
+  height: 0.0625rem;
+
+  background: var(--gold);
+}
+
+
+/* =========================================================
+   HIGHLIGHT TITLE
+   ========================================================= */
+
+.highlight h3 {
+  margin: 1.25rem 0 0;
+
+  color: var(--text);
+
+  font-family: var(--font-display);
+
+  font-size: clamp(
+    1.9rem,
+    2.3vw,
+    2.5rem
+  );
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   HIGHLIGHT DESCRIPTION
+   ========================================================= */
+
+.highlight p {
+  margin: 0.9rem 0 0;
+
+  color: var(--muted);
+
+  font-family: var(--font-body);
+
+  font-size: 0.95rem;
+
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  letter-spacing: -0.015em;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 64rem) {
+
+  .about {
+    padding: 7rem 0 6rem;
+  }
+
+  .container {
+    width: min(
+      calc(100% - 8rem),
+      70rem
+    );
+  }
+
+  .title {
+    font-size: clamp(
+      5rem,
+      9vw,
+      7rem
+    );
+  }
+
+  .intro {
+    width: min(
+      100%,
+      43rem
+    );
+  }
+
+  .highlights {
+    margin-top: 4rem;
+  }
+
+  .highlight {
+    padding-right: 2rem;
+  }
+
+  .highlight + .highlight {
+    padding-left: 2rem;
+  }
+
+  .metaLine {
+    width: 3.5rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 48rem) {
+
+  .about {
+    padding: 5.5rem 0 5rem;
+  }
+
+  .container {
+    width: calc(100% - 3rem);
+
+    margin: 0 auto;
+  }
+
+
+  /* -----------------------------------------
+     Decorative elements
+     ----------------------------------------- */
+
+  .decorTop {
+    width: 13rem;
+    height: 13rem;
+
+    top: -8rem;
+    right: -7rem;
+  }
+
+  .decorBottom {
+    width: 14rem;
+    height: 14rem;
+
+    bottom: -9rem;
+    left: -8rem;
+  }
+
+
+  /* -----------------------------------------
+     Eyebrow
+     ----------------------------------------- */
+
+  .eyebrow {
+    gap: 0.9rem;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.22em;
+  }
+
+  .eyebrowLine {
+    width: 2.5rem;
+  }
+
+
+  /* -----------------------------------------
+     Title
+     ----------------------------------------- */
+
+  .title {
+    margin-top: 2.5rem;
+
+    font-size: clamp(
+      4rem,
+      18vw,
+      5.8rem
+    );
+
+    line-height: 0.84;
+  }
+
+
+  /* -----------------------------------------
+     Intro
+     ----------------------------------------- */
+
+  .intro {
+    width: 100%;
+
+    margin-top: 2rem;
+  }
+
+  .intro p {
+    font-size: 1rem;
+
+    line-height: 1.5;
+  }
+
+  .intro p + p {
+    margin-top: 1.25rem;
+  }
+
+
+  /* -----------------------------------------
+     Highlights
+     ----------------------------------------- */
+
+  .highlights {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 3.5rem;
+
+    border-top: 0.0625rem solid var(--border);
+  }
+
+  .highlight,
+  .highlight + .highlight {
+    padding: 1.75rem 0;
+  }
+
+  .highlight + .highlight {
+    border-left: 0;
+    border-top: 0.0625rem solid var(--border);
+  }
+
+
+  /* -----------------------------------------
+     Meta
+     ----------------------------------------- */
+
+  .meta {
+    font-size: 0.62rem;
+  }
+
+  .metaLine {
+    width: 3.5rem;
+  }
+
+
+  /* -----------------------------------------
+     Highlight title
+     ----------------------------------------- */
+
+  .highlight h3 {
+    margin-top: 1rem;
+
+    font-size: 1.85rem;
+  }
+
+
+  /* -----------------------------------------
+     Highlight text
+     ----------------------------------------- */
+
+  .highlight p {
+    margin-top: 0.7rem;
+
+    font-size: 0.9rem;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 30rem) {
+
+  .container {
+    width: calc(100% - 2.5rem);
+  }
+
+  .about {
+    padding: 4.5rem 0 4rem;
+  }
+
+  .eyebrow {
+    font-size: 0.56rem;
+  }
+
+  .title {
+    margin-top: 2.25rem;
+
+    font-size: clamp(
+      3.6rem,
+      18vw,
+      5rem
+    );
+  }
+
+  .intro {
+    margin-top: 1.75rem;
+  }
+
+  .intro p {
+    font-size: 0.92rem;
+  }
+
+  .highlights {
+    margin-top: 3rem;
+  }
+
+  .highlight h3 {
+    font-size: 1.65rem;
+  }
+
+  .highlight p {
+    font-size: 0.86rem;
+  }
+}

@@ -1,0 +1,602 @@
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+
+  width: 100%;
+
+  background: rgba(250, 248, 242, 0.97);
+
+  border-bottom: 0.0625rem solid var(--border);
+
+  backdrop-filter: blur(0.75rem);
+  -webkit-backdrop-filter: blur(0.75rem);
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.container {
+  width: min(100% - 7rem, 110rem);
+
+  min-height: 5.75rem;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+
+  color: var(--text);
+
+  text-decoration: none;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+  display: block;
+
+  width: 4.75rem;
+  height: 4.75rem;
+
+  object-fit: contain;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   BRAND TEXT
+
+   DNH & DD
+   CHESS ASSOCIATION
+   ========================================================= */
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 0.42rem;
+}
+
+.brandName {
+  color: var(--text);
+
+  font-family: var(--font-display);
+
+  font-size: 1.65rem;
+  font-weight: 400;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.035em;
+
+  white-space: nowrap;
+}
+
+.brandSubtitle {
+  color: var(--muted);
+
+  font-family: var(--font-body);
+
+  font-size: 0.62rem;
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: 0.34em;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   DESKTOP NAV
+   ========================================================= */
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+
+  gap: 3rem;
+}
+
+.navLink {
+  position: relative;
+
+  padding: 0.65rem 0;
+
+  color: var(--text);
+
+  font-family: var(--font-display);
+
+  font-size: 1.05rem;
+  font-weight: 400;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  transition: color 0.25s ease;
+}
+
+
+/* =========================================================
+   NAV UNDERLINE
+   ========================================================= */
+
+.navLink::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 0.12rem;
+
+  background: var(--accent);
+
+  transition: width 0.25s ease;
+}
+
+.navLink:hover {
+  color: var(--accent);
+}
+
+.navLink:hover::after,
+.navLink.active::after {
+  width: 100%;
+}
+
+.navLink.active {
+  color: var(--accent);
+}
+
+.navLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 0.35rem;
+}
+
+
+/* =========================================================
+   MOBILE HAMBURGER  (three lines → X)
+
+   Layout of the 2.75rem button:
+
+     line 1  ────────────   full width
+     line 2      ───────    shorter, right-aligned
+     line 3  ────────────   full width
+
+   - The lines are centred vertically with `top: 50%` and
+     spread apart with translateY, so the open animation is
+     a simple transform (smooth, no layout jumps).
+   - margin-right pulls the lines flush with the page edge.
+   ========================================================= */
+
+.menuButton {
+  display: none;
+
+  position: relative;
+
+  width: 2.75rem;
+  height: 2.75rem;
+
+  margin-right: -0.55rem;
+  padding: 0;
+
+  border: 0;
+  border-radius: 0.25rem;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menuButton:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 0.125rem;
+}
+
+.menuButton span {
+  position: absolute;
+
+  top: calc(50% - 0.0625rem);
+  left: 0.55rem;
+
+  width: 1.65rem;
+  height: 0.125rem;
+
+  border-radius: 0.125rem;
+
+  background: var(--text);
+
+  transform-origin: center;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease,
+    left 0.25s ease,
+    width 0.25s ease;
+}
+
+/* Closed state */
+
+.menuButton span:nth-child(1) {
+  transform: translateY(-0.5rem) rotate(0deg);
+}
+
+.menuButton span:nth-child(2) {
+  left: 1.1rem;
+  width: 1.1rem;
+}
+
+.menuButton span:nth-child(3) {
+  transform: translateY(0.5rem) rotate(0deg);
+}
+
+/* Middle line grows to full width on hover (desktop pointers only) */
+
+@media (hover: hover) {
+
+  .menuButton:not(.menuOpen):hover span:nth-child(2) {
+    left: 0.55rem;
+    width: 1.65rem;
+  }
+}
+
+
+/* =========================================================
+   HAMBURGER → X
+   ========================================================= */
+
+.menuButton.menuOpen span:nth-child(1) {
+  transform: translateY(0) rotate(45deg);
+}
+
+.menuButton.menuOpen span:nth-child(2) {
+  left: 1.375rem;
+  width: 0;
+
+  opacity: 0;
+}
+
+.menuButton.menuOpen span:nth-child(3) {
+  transform: translateY(0) rotate(-45deg);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.mobileMenu {
+  display: none;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 64rem) {
+
+  .container {
+    width: calc(100% - 4rem);
+
+    min-height: 5.25rem;
+  }
+
+  .logo {
+    width: 4.25rem;
+    height: 4.25rem;
+  }
+
+  .brand {
+    gap: 0.8rem;
+  }
+
+  .brandName {
+    font-size: 1.45rem;
+  }
+
+  .brandSubtitle {
+    font-size: 0.55rem;
+  }
+
+  .desktopNav {
+    gap: 2rem;
+  }
+
+  .navLink {
+    font-size: 0.98rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 48rem) {
+
+  .container {
+    width: calc(100% - 2rem);
+
+    min-height: 4.5rem;
+  }
+
+  .logo {
+    width: 3.65rem;
+    height: 3.65rem;
+  }
+
+  /*
+     Keep the association name beside the logo
+     on mobile, but make it compact.
+  */
+
+  .brand {
+    gap: 0.7rem;
+  }
+
+  .brandText {
+    gap: 0.3rem;
+  }
+
+  .brandName {
+    font-size: 1.2rem;
+  }
+
+  .brandSubtitle {
+    font-size: 0.45rem;
+
+    letter-spacing: 0.23em;
+  }
+
+  .desktopNav {
+    display: none;
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+
+  /* =======================================================
+     MOBILE MENU PANEL
+     ======================================================= */
+
+  .mobileMenu {
+    display: flex;
+
+    position: fixed;
+
+    top: 4.5rem;
+    left: 0;
+
+    width: 100%;
+
+    min-height: calc(100svh - 4.5rem);
+
+    padding: 2rem 1.5rem 1.5rem;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: var(--bg);
+
+    border-top: 0.0625rem solid var(--border);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-0.75rem);
+
+    pointer-events: none;
+
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .mobileMenuOpen {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+  }
+
+
+  /* =======================================================
+     MOBILE NAV
+     ======================================================= */
+
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobileLink {
+    display: flex;
+    align-items: center;
+
+    gap: 1.25rem;
+
+    padding: 1.25rem 0;
+
+    border-bottom: 0.0625rem solid var(--border);
+
+    color: var(--text);
+
+    font-family: var(--font-display);
+
+    font-size: 2rem;
+    font-weight: 400;
+
+    text-decoration: none;
+
+    transition:
+      color 0.2s ease,
+      padding-left 0.2s ease;
+  }
+
+  .mobileLink:first-child {
+    border-top: 0.0625rem solid var(--border);
+  }
+
+  .mobileLink:hover,
+  .mobileActive {
+    color: var(--accent);
+  }
+
+  .mobileLink:hover {
+    padding-left: 0.4rem;
+  }
+
+  .mobileLink:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -0.125rem;
+  }
+
+  .mobileNumber {
+    min-width: 1.5rem;
+
+    color: var(--gold);
+
+    font-family: var(--font-body);
+
+    font-size: 0.62rem;
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+  }
+
+
+  /* =======================================================
+     MOBILE FOOTER
+     ======================================================= */
+
+  .mobileBottom {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    padding-top: 2rem;
+
+    color: var(--muted);
+
+    font-family: var(--font-body);
+
+    font-size: 0.5rem;
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 30rem) {
+
+  .container {
+    width: calc(100% - 1.5rem);
+
+    min-height: 4.25rem;
+  }
+
+  .logo {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+
+  .brand {
+    gap: 0.6rem;
+  }
+
+  .brandName {
+    font-size: 1.05rem;
+  }
+
+  .brandSubtitle {
+    font-size: 0.4rem;
+
+    letter-spacing: 0.2em;
+  }
+
+  .mobileMenu {
+    top: 4.25rem;
+
+    min-height: calc(100svh - 4.25rem);
+
+    padding: 1.5rem 1.25rem;
+  }
+
+  .mobileLink {
+    font-size: 1.8rem;
+
+    padding: 1.1rem 0;
+  }
+
+  .mobileBottom {
+    flex-direction: column;
+
+    gap: 0.5rem;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .navLink,
+  .navLink::after,
+  .menuButton span,
+  .mobileMenu,
+  .mobileLink {
+    transition: none;
+  }
+}

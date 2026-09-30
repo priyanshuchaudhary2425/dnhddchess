@@ -1,0 +1,447 @@
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  overflow: hidden;
+
+  background: var(--bg);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================================
+   BACKGROUND ARTWORK
+   ========================================================= */
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-image: var(--desktop-bg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENT CONTAINER
+   ========================================================= */
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 7rem 7.2rem 4rem;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.content {
+  width: min(60rem, 60vw);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.title {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 10vw, 10.5rem);
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: -0.055em;
+}
+
+.title span {
+  display: block;
+}
+
+.green {
+  color: var(--text);
+}
+
+.red {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.description {
+  max-width: 36rem;
+
+  margin: 2.5rem 0 0;
+
+  color: var(--muted);
+
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+
+  text-wrap: pretty;
+}
+
+
+/* =========================================================
+   COACH
+   ========================================================= */
+
+.coach {
+  display: flex;
+  align-items: center;
+
+  gap: 1.75rem;
+
+  margin-top: 1.75rem;
+}
+
+.coachRule {
+  flex-shrink: 0;
+
+  width: 4rem;
+  height: 0.125rem;
+
+  background: var(--accent);
+}
+
+.coachDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.coachName {
+  margin: 0;
+
+  color: var(--text);
+
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.coachRole {
+  margin-top: 0.55rem;
+
+  color: var(--text);
+
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.32em;
+}
+
+
+/* =========================================================
+   SCROLL (button)
+   ========================================================= */
+
+.scroll {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 1rem;
+
+  margin: 1.5rem 0 0 0.5rem;
+  padding: 0;
+
+  background: none;
+  border: 0;
+
+  color: inherit;
+  font: inherit;
+  text-align: left;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.scroll:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 0.6rem;
+}
+
+.scrollRule {
+  width: 0.125rem;
+  height: 3rem;
+
+  background: var(--text);
+}
+
+.scrollDetails {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 1.6rem;
+
+  color: var(--text);
+
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.34em;
+}
+
+.arrow {
+  margin-top: 0.4rem;
+
+  font-size: 1.15rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+
+/* =========================================================
+   PAGE-LOAD SEQUENCE
+   One orchestrated entrance: title lines, then the rest.
+   ========================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  .title span,
+  .description,
+  .coach,
+  .scroll {
+    animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .title span:nth-child(1) { animation-delay: 0.05s; }
+  .title span:nth-child(2) { animation-delay: 0.15s; }
+  .title span:nth-child(3) { animation-delay: 0.25s; }
+
+  .description { animation-delay: 0.45s; }
+  .coach       { animation-delay: 0.55s; }
+  .scroll      { animation-delay: 0.65s; }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   LARGE TABLET
+   ========================================================= */
+
+@media (max-width: 64rem) {
+
+  .container {
+    padding: 7rem 5rem 4rem;
+  }
+
+  .content {
+    width: min(48rem, 65vw);
+  }
+
+  .title {
+    font-size: clamp(5rem, 10vw, 8rem);
+  }
+
+  .description {
+    max-width: 30rem;
+
+    font-size: 1rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 48rem) {
+
+  .background {
+    background-image: var(--mobile-bg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .container {
+    padding: 2rem 1.5rem;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 34rem;
+  }
+
+  /* Title — noticeably larger on phones */
+  .title {
+    font-size: clamp(4.8rem, 23vw, 7rem);
+    line-height: 0.83;
+  }
+
+  /* Description */
+  .description {
+    max-width: 26rem;
+
+    margin-top: 2.1rem;
+
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+
+  /* Hide the forced desktop line break */
+  .desktopBreak {
+    display: none;
+  }
+
+  /* Coach */
+  .coach {
+    gap: 1rem;
+
+    margin-top: 1.75rem;
+  }
+
+  .coachRule {
+    width: 2.75rem;
+  }
+
+  .coachName {
+    font-size: 1.65rem;
+  }
+
+  .coachRole {
+    margin-top: 0.55rem;
+
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+  }
+
+  /* Scroll */
+  .scroll {
+    margin: 1.75rem 0 0 0.25rem;
+  }
+
+  .scrollRule {
+    height: 2.75rem;
+  }
+
+  .scrollDetails {
+    padding-top: 1.45rem;
+
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+  }
+
+  .arrow {
+    margin-top: 0.35rem;
+
+    font-size: 1.2rem;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 30rem) {
+
+  .container {
+    padding: 2rem 1.25rem;
+  }
+
+  .title {
+    font-size: clamp(4.6rem, 23vw, 6rem);
+    line-height: 0.84;
+  }
+
+  .description {
+    max-width: 22rem;
+
+    margin-top: 1.9rem;
+
+    font-size: 1.05rem;
+  }
+
+  .coach {
+    gap: 0.9rem;
+
+    margin-top: 1.6rem;
+  }
+
+  .coachRule {
+    width: 2.4rem;
+  }
+
+  .coachName {
+    font-size: 1.5rem;
+  }
+
+  .coachRole {
+    font-size: 0.66rem;
+    letter-spacing: 0.26em;
+  }
+
+  .scroll {
+    gap: 0.9rem;
+
+    margin-top: 1.6rem;
+  }
+
+  .scrollRule {
+    height: 2.6rem;
+  }
+
+  .scrollDetails {
+    padding-top: 1.3rem;
+
+    font-size: 0.64rem;
+  }
+
+  .arrow {
+    font-size: 1.1rem;
+  }
+}
